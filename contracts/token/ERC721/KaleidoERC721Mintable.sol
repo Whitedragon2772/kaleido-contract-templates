@@ -8,11 +8,9 @@ contract KaleidoERC721Mintable is ERC721, AccessControl {
 
     constructor(string memory name, string memory symbol) ERC721(name, symbol) public {
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
-        _setupRole(MINTER_ROLE, _msgSender());
     }
 
     function mint(address to, uint256 tokenId) public {
-        require(hasRole(MINTER_ROLE, _msgSender()), "KaleidoERC721Mintable: must have minter role to mint");
         _mint(to, tokenId);
     }
 
