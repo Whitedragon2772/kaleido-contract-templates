@@ -27,6 +27,10 @@ contract ERC721MintableBurnable is ERC721 {
     }
     
     
+    function _incrementTokenId() private {
+        _currentTokenId++;
+    }
+    
    function _burn(uint256 tokenId) internal virtual {
         address owner = ERC721.ownerOf(tokenId);
 
